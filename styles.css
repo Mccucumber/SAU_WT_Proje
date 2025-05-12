@@ -1,0 +1,10 @@
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+.scroll-container img {
+  margin: 10px;
+}
+Daha çok yazmam lazım ama bu gün ilgilenesim pek yok yarın dersten sonra devam edicem
