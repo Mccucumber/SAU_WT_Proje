@@ -7,4 +7,12 @@
 .scroll-container img {
   margin: 10px;
 }
-Daha çok yazmam lazım ama bu gün ilgilenesim pek yok yarın dersten sonra devam edicem
+.nav-link
+{
+  color: rgb(209, 203, 245);
+  font-size: 20px;
+}
+.nav-pagename{
+  color: rgb(245, 242, 255);
+  font-size: 30px;
+}
