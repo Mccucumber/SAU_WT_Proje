@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlgi Alanlarım</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .interest {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 4px solid #333;
+            background-color: #f9f9f9;
+        }
+        #favorite-games {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ddd;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+        footer span {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    İlgi Alanlarım
+</header>
+
+<div class="container">
+    <div class="interest">
+        <h2>Taekwondo</h2>
+        <h3>Bu spora ortaokulda başlamıştım, şu an siyah kuşak 3. danım ve poomsae dalında c milliyim.</h3>
+    </div>
+    <div class="interest">
+        <h2>Yazılım</h2>
+        <h3>Bir sonuca varan şeylerle uğraşmayı sevdiğim için bir proje kodladığımda çalıştığını görmekten mutlu oluyorum.</h3>
+    </div>
+    <div class="interest">
+        <h2>Doğa Yürüyüşü</h2>
+        <h3>Genel olarak yürümek en sevdiğim şeylerden biri ve ormanla değların sessizliğini seviyorum. Tabiki yrürümek için illa dağ orman olmsına gerek yok
+            , en uzun şehir yürüyüşüm İstanbulda boğaza paralel güneye yürüyüşümdü ve 30km yürüyerek Sarıyer'den Bağcılar'a 6 saate yürüdüm.
+        </h3>
+    </div>
+    <div class="interest">
+        <h2>CAD Tasarım</h2>
+        <h2>Yazlım hobimin yanında elektroniğe da bir ilgim var ve bazı projelerim için 3d yazıcı kullanmam gerektiğinden
+            basacağım modelleri tasarlamam gerek. Bunun yanında bir modelin dijitalde her ölçüyle yapıldıktan sonra gerçek hayatta elle tutulabilir
+            ve tam da tasarladığın cisim olması beni her baskı sonucunda mutlu eden bir hissiyat.
+        </h2>
+    </div>
+    <div class="interest">
+        <h2>Video Oyunları</h3>
+        <h3>Ne kadar sistemim yetli olmasa da nişan bazlı oyunları ve bazı indie projeleri takip etmeyi seviyorum.</h3>
+    </div>
+    <div class="interest">
+        <h2>Çizim</h3>
+        <h3>Son zamanlarda edindiğim bir hobi olmakla beraber çok fazla vakit harcadığından genelde bir dizi ya da film
+            izlerken ellerimi meşgul etmek amacıyla edindiğim bir hobi.
+        </h3>
+    </div>
+
+    <div id="favorite-games">
+        <h3>Favori Oyunlarım</h3>
+        <button onclick="fetchGames()">Oyunları Getir</button>
+        <ul id="games-list"></ul>
+    </div>
+</div>
+
+<footer>
+    <span>İlgi Alanlarım</span>
+    <span>🖥️ ✍️ 🎮</span>
+</footer>
+
+<script>
+    function fetchGames() {
+        fetch('https://api.rawg.io/api/games?key=be61a9ccfe6648be95e43117f06c0f40&dates=2019-09-01,2019-09-30&platforms=18,1,7')
+            .then(response => response.json())
+            .then(data => {
+                const gamesList = document.getElementById('games-list');
+                gamesList.innerHTML = '';
+                data.forEach(game => {
+                    const li = document.createElement('li');
+                    li.textContent = game.name;
+                    gamesList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('API hatası:', error));
+    }
+</script>
+
+</body>
+</html>

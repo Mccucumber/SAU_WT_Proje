@@ -52,16 +52,16 @@
                         <i class="fa fa-envelope"></i>
                         <span>
                             <h5>ufukberkbayraktar@gmail.com</h5>
-                            <p>mümkünse iletişim kurmayalım</p>
+                            <p>mümkünse iletişim kurmayalım </p>
                         </span>
                     </div>    
                 </div>
                 <div class="bilgi-col">
-                    <form action="">
-                        <input type="text" placeholder="İsminizi Giriniz" required>
-                        <input type="email" placeholder="Email Aresinizi Giriniz" required>
-                        <input type="text" placeholder="Mesajınızın Konusunu Yazınız" required>
-                        <textarea rows="8" placeholder="Geridünüşünüzü Bildiriniz" required></textarea>
+                    <form action="contact.php" method="post">
+                        <input type="text" name="name" placeholder="İsminizi Giriniz" required>
+                        <input type="email" name="email" placeholder="Email Aresinizi Giriniz" required>
+                        <input type="text" name="text" placeholder="Mesajınızın Konusunu Yazınız" required>
+                        <textarea rows="8" name="mesaj" placeholder="Geridünüşünüzü Bildiriniz" required></textarea>
                         <button type="submit" class="form-send-button">Gönder</button>
                     </form>
                 </div>
